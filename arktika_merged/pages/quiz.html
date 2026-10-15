@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование — Удивительная и неизведанная Арктика</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <div class="logo__icon">❄</div>
+                <div class="logo__text">
+                    <h1 class="logo__title">Удивительная и неизведанная Арктика</h1>
+                    <p class="logo__subtitle">Всероссийский конкурс</p>
+                </div>
+            </div>
+            <div class="counter">
+                <span class="counter__number">245</span>
+                <span class="counter__label">участников</span>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">О конкурсе</a></li>
+                    <li class="nav__item"><a href="participants.html" class="nav__link">Участникам</a></li>
+                    <li class="nav__item"><a href="../education/lessons.html" class="nav__link">Образование</a></li>
+                    <li class="nav__item"><a href="media.html" class="nav__link">Медиатека</a></li>
+                    <li class="nav__item"><a href="../news/news.html" class="nav__link">Новости</a></li>
+                    <li class="nav__item"><a href="partners.html" class="nav__link">Партнёрам</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+            <div class="auth-actions"><a class="auth-link" href="/pages/auth.html#login">Вход</a><a class="auth-link auth-link--primary" href="/pages/auth.html#register">Регистрация</a></div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section__title">Тестирование</h1>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">Проверьте свои знания об Арктике. Ответьте на вопросы викторины с подсчётом баллов.</p>
+            
+            <div id="quiz-container" style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 12px rgba(26, 77, 128, 0.1); border: 1px solid var(--border-color);">
+                <div style="margin-bottom: 2rem;">
+                    <h3 id="quiz-title" style="color: var(--primary-blue); margin-bottom: 0.5rem;">Тест «Арктика. Первые шаги»</h3>
+                    <p id="quiz-progress" style="color: var(--text-light);">Вопрос 1 из 5</p>
+                    <div style="background: var(--border-color); height: 6px; border-radius: 3px; margin-top: 1rem; overflow: hidden;">
+                        <div id="progress-bar" style="background: var(--accent-orange); height: 100%; width: 20%; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+                
+                <div id="question-container">
+                    <h3 id="question-text" style="color: var(--primary-blue); margin-bottom: 1.5rem;"></h3>
+                    <div id="answers-container" style="margin-bottom: 2rem;"></div>
+                </div>
+                
+                <div id="result-container" style="display: none; text-align: center;">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">Тест завершён!</h3>
+                    <p style="font-size: 3rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 0.5rem;" id="score-display"></p>
+                    <p style="color: var(--text-light); margin-bottom: 2rem;" id="result-text"></p>
+                    <button onclick="resetQuiz()" class="btn btn--primary">Пройти ещё раз</button>
+                    <a href="../index.html" class="btn btn--secondary">На главную</a>
+                </div>
+                
+                <div id="controls" style="display: flex; justify-content: space-between;">
+                    <button onclick="prevQuestion()" id="prev-btn" class="btn btn--secondary" disabled>Назад</button>
+                    <button onclick="nextQuestion()" id="next-btn" class="btn btn--primary">Далее</button>
+                    <button onclick="finishQuiz()" id="finish-btn" class="btn btn--primary" style="display: none;">Завершить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">Организаторы</h3>
+                <p class="footer__text">Государственный природный заповедник «Медвежьи острова»</p>
+                <p class="footer__text">Институт биологических проблем криолитозоны СО РАН</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Контакты</h3>
+                <p class="footer__text">E-mail: info@arctic-contest.ru</p>
+                <p class="footer__text">Телефон: +7 (4112) XXX-XXX</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Социальные сети</h3>
+                <div class="social">
+                    <a href="https://vk.ru/peakit" class="social__link" target="_blank" rel="noopener">ВКонтакте</a>
+                    <a href="https://t.me/durov" class="social__link" target="_blank" rel="noopener">Telegram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copy">&copy; 2021-2026 Конкурс «Удивительная и неизведанная Арктика»</p>
+        </div>
+    </footer>
+
+    <script>
+        const quiz = [
+            {
+                question: "Где чаще всего рождают белые медведи?",
+                answers: [
+                    { text: "На льду Арктики", correct: false },
+                    { text: "На Медвежьих островах", correct: true },
+                    { text: "В горах Чукотки", correct: false }
+                ]
+            },
+            {
+                question: "Главная особенность белого медведя — это...",
+                answers: [
+                    { text: "Охота в тропиках", correct: false },
+                    { text: "Белый покров и адаптация к холоду", correct: true },
+                    { text: "Обитание в пустыне", correct: false }
+                ]
+            },
+            {
+                question: "Северный морской путь — это...",
+                answers: [
+                    { text: "Торговый маршрут вдоль севера России", correct: true },
+                    { text: "Дорога через пустыню", correct: false },
+                    { text: "Тропа через Гималаи", correct: false }
+                ]
+            },
+            {
+                question: "Какая зона России называется арктической?",
+                answers: [
+                    { text: "Только Краснодарский край", correct: false },
+                    { text: "Районы севернее Полярного круга", correct: true },
+                    { text: "Республика Крым", correct: false }
+                ]
+            },
+            {
+                question: "Как школьник может помочь Арктике?",
+                answers: [
+                    { text: "Распространять экологические знания", correct: true },
+                    { text: "Выбросить мусор в море", correct: false },
+                    { text: "Разжечь костёр на хрупком мху", correct: false }
+                ]
+            }
+        ];
+    </script>
+    <script src="../js/quiz.js"></script>
+    <script src="../js/backend.js"></script>
+    <script src="/js/auth-nav.js"></script>
+<script src="/js/snowfall.js" defer></script>
+</body>
+</html>

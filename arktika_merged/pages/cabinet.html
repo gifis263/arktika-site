@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет участника — Удивительная и неизведанная Арктика</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cabinet.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <div class="logo__icon">❄</div>
+                <div class="logo__text">
+                    <h1 class="logo__title">Удивительная и неизведанная Арктика</h1>
+                    <p class="logo__subtitle">Личный кабинет участника</p>
+                </div>
+            </div>
+            <div class="counter">
+                <span class="counter__number" id="participantCounter">—</span>
+                <span class="counter__label">участников</span>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">О конкурсе</a></li>
+                    <li class="nav__item"><a href="participants.html" class="nav__link">Участникам</a></li>
+                    <li class="nav__item"><a href="../education/lessons.html" class="nav__link">Образование</a></li>
+                    <li class="nav__item"><a href="media.html" class="nav__link">Медиатека</a></li>
+                    <li class="nav__item"><a href="../news/news.html" class="nav__link">Новости</a></li>
+                    <li class="nav__item"><a href="partners.html" class="nav__link">Партнёрам</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="auth-actions"><a class="auth-link" href="/pages/auth.html#login">Вход</a><a class="auth-link auth-link--primary" href="/pages/auth.html#register">Регистрация</a></div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="cabinet">
+                <aside class="cabinet__sidebar">
+                    <div class="cabinet__user">
+                        <div class="cabinet__user-name" id="userName">Загрузка…</div>
+                        <div class="cabinet__user-email" id="userEmail"></div>
+                        <div class="cabinet__progress" title="Заполненность профиля"><span id="profileProgress"></span></div>
+                    </div>
+                    <ul class="cabinet__menu" id="cabinetMenu">
+                        <li><button data-section="overview" class="active">📊 Обзор</button></li>
+                        <li><button data-section="profile">👤 Профиль</button></li>
+                        <li><button data-section="supervisor">🧑‍🏫 Руководитель</button></li>
+                        <li><button data-section="testing">📝 Тестирование</button></li>
+                        <li><button data-section="project">📁 Проект</button></li>
+                        <li><button data-section="results">🏅 Результаты</button></li>
+                        <li><button data-section="schedule">🎥 ВКС-защита</button></li>
+                        <li><button data-section="achievements">🎓 Достижения</button></li>
+                    </ul>
+                </aside>
+
+                <div class="cabinet__content">
+                    <!-- ОБЗОР -->
+                    <div class="panel active" id="panel-overview">
+                        <h2 class="panel__title">Добро пожаловать!</h2>
+                        <p class="panel__subtitle">Здесь собраны все этапы вашего участия в конкурсе.</p>
+                        <div class="summary-grid" id="summaryGrid"></div>
+                        <div class="hint">
+                            Это прототип личного кабинета. Чтобы увидеть, как выглядят заполненные результаты,
+                            нажмите кнопку ниже — она добавит демонстрационные данные (проект, оценки экспертов,
+                            расписание ВКС и награды).
+                        </div>
+                        <button class="btn btn--ghost btn--sm" id="seedDemoBtn" type="button">Заполнить демо-данными</button>
+                        <div class="alert" id="overviewAlert"></div>
+                    </div>
+
+                    <!-- ПРОФИЛЬ -->
+                    <div class="panel" id="panel-profile">
+                        <h2 class="panel__title">Профиль участника</h2>
+                        <p class="panel__subtitle">Заполните данные о себе и законном представителе.</p>
+                        <form id="profileForm">
+                            <div class="form-grid">
+                                <div class="field field--full">
+                                    <label for="p_full_name">ФИО *</label>
+                                    <input id="p_full_name" name="full_name" required maxlength="150" placeholder="Иванов Алексей Петрович">
+                                </div>
+                                <div class="field">
+                                    <label for="p_birth_date">Дата рождения *</label>
+                                    <input id="p_birth_date" name="birth_date" type="date" required>
+                                </div>
+                                <div class="field">
+                                    <label for="p_grade">Класс *</label>
+                                    <input id="p_grade" name="grade" required maxlength="30" placeholder="9 класс">
+                                </div>
+                                <div class="field">
+                                    <label for="p_school">Школа *</label>
+                                    <input id="p_school" name="school" required maxlength="150" placeholder="МБОУ «СОШ № 1»">
+                                </div>
+                                <div class="field">
+                                    <label for="p_region">Регион *</label>
+                                    <input id="p_region" name="region" required maxlength="120" placeholder="Республика Саха (Якутия)">
+                                </div>
+                                <div class="field">
+                                    <label for="p_guardian_name">ФИО законного представителя *</label>
+                                    <input id="p_guardian_name" name="guardian_name" required maxlength="150" placeholder="Иванова Мария Ивановна">
+                                </div>
+                                <div class="field">
+                                    <label for="p_guardian_contact">Контакты законного представителя *</label>
+                                    <input id="p_guardian_contact" name="guardian_contact" required maxlength="150" placeholder="+7 (999) 123-45-67, email">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn--primary" type="submit">Сохранить профиль</button>
+                            </div>
+                            <div class="alert" id="profileAlert"></div>
+                        </form>
+                    </div>
+
+                    <!-- РУКОВОДИТЕЛЬ -->
+                    <div class="panel" id="panel-supervisor">
+                        <h2 class="panel__title">Руководитель (педагог)</h2>
+                        <p class="panel__subtitle">Укажите педагога-руководителя. Ему придёт письмо со ссылкой для подтверждения.</p>
+                        <form id="supervisorForm">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="s_name">ФИО руководителя *</label>
+                                    <input id="s_name" name="teacher_name" required maxlength="150" placeholder="Петров Сергей Владимирович">
+                                </div>
+                                <div class="field">
+                                    <label for="s_email">Email руководителя *</label>
+                                    <input id="s_email" name="teacher_email" type="email" required maxlength="254" placeholder="teacher@school.ru">
+                                </div>
+                                <div class="field">
+                                    <label for="s_org">Организация</label>
+                                    <input id="s_org" name="organization" maxlength="150" placeholder="МБОУ «СОШ № 1»">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn--primary" type="submit">Пригласить руководителя</button>
+                            </div>
+                            <div class="alert" id="supervisorAlert"></div>
+                        </form>
+                        <div class="item-list" id="supervisorList"></div>
+                    </div>
+
+                    <!-- ТЕСТИРОВАНИЕ -->
+                    <div class="panel" id="panel-testing">
+                        <h2 class="panel__title">Тестирование (I этап)</h2>
+                        <p class="panel__subtitle">Случайная выборка вопросов из банка, таймер и мгновенный результат.</p>
+
+                        <div id="quizIntro">
+                            <div class="hint">
+                                Вам будет предложено 10 случайных вопросов. Ограничение по времени — 15 минут.
+                                При успешном прохождении автоматически формируется сертификат с уникальным номером и QR-кодом.
+                            </div>
+                            <button class="btn btn--primary" id="startQuizBtn" type="button">Начать тестирование</button>
+                            <div id="attemptsList" style="margin-top:1.5rem"></div>
+                        </div>
+
+                        <div id="quizRun" style="display:none">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;gap:1rem;flex-wrap:wrap">
+                                <span class="quiz-timer" id="quizTimer">15:00</span>
+                                <span class="muted" id="quizProgressText"></span>
+                            </div>
+                            <form id="quizForm"><div id="quizQuestions"></div>
+                                <div class="form-actions">
+                                    <button class="btn btn--primary" type="submit">Завершить и проверить</button>
+                                    <button class="btn btn--ghost" type="button" id="cancelQuizBtn">Отменить</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="quizResult" style="display:none"></div>
+                    </div>
+
+                    <!-- ПРОЕКТ -->
+                    <div class="panel" id="panel-project">
+                        <h2 class="panel__title">Проект (II этап)</h2>
+                        <p class="panel__subtitle">Загрузите конкурсную работу, презентацию и видеоролик.</p>
+                        <div class="hint">
+                            Допустимые форматы: работа — PDF/DOCX, презентация — PDF/PPTX, видеоролик — ссылка или
+                            файл MP4/MOV/AVI/WEBM/MKV. Размер каждого файла — до 20 МБ.
+                        </div>
+                        <form id="projectForm">
+                            <div class="form-grid">
+                                <div class="field field--full">
+                                    <label for="pr_title">Название проекта *</label>
+                                    <input id="pr_title" name="title" required maxlength="200" placeholder="Белый медведь: хозяин Арктики">
+                                </div>
+                                <div class="field">
+                                    <label for="pr_nomination">Номинация *</label>
+                                    <select id="pr_nomination" name="nomination" required>
+                                        <option value="">Выберите номинацию…</option>
+                                        <option value="Исследовательские работы">Исследовательские работы</option>
+                                        <option value="Творческие работы">Творческие работы</option>
+                                        <option value="Просветительские проекты">Просветительские проекты</option>
+                                    </select>
+                                </div>
+                                <div class="field field--full">
+                                    <label for="pr_abstract">Аннотация *</label>
+                                    <textarea id="pr_abstract" name="abstract" required maxlength="3000" placeholder="Краткое описание проекта"></textarea>
+                                </div>
+                                <div class="field">
+                                    <label for="pr_file">Файл работы (PDF/DOCX)</label>
+                                    <input id="pr_file" name="file" type="file" accept=".pdf,.docx">
+                                </div>
+                                <div class="field">
+                                    <label for="pr_presentation">Презентация (PDF/PPTX)</label>
+                                    <input id="pr_presentation" name="presentation" type="file" accept=".pdf,.pptx">
+                                </div>
+                                <div class="field">
+                                    <label for="pr_video_url">Ссылка на видеоролик</label>
+                                    <input id="pr_video_url" name="video_url" maxlength="500" placeholder="https://...">
+                                </div>
+                                <div class="field">
+                                    <label for="pr_video">Или файл видеоролика</label>
+                                    <input id="pr_video" name="video" type="file" accept=".mp4,.mov,.avi,.webm,.mkv">
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn--primary" type="submit" value="review">Отправить на проверку</button>
+                                <button class="btn btn--ghost" type="button" id="saveDraftBtn">Сохранить черновик</button>
+                            </div>
+                            <div class="alert" id="projectAlert"></div>
+                        </form>
+                        <div class="item-list" id="projectList"></div>
+                    </div>
+
+                    <!-- РЕЗУЛЬТАТЫ -->
+                    <div class="panel" id="panel-results">
+                        <h2 class="panel__title">Результаты</h2>
+                        <p class="panel__subtitle">Баллы, рецензии экспертов и обратная связь.</p>
+                        <div id="resultsBox"></div>
+                    </div>
+
+                    <!-- РАСПИСАНИЕ ВКС -->
+                    <div class="panel" id="panel-schedule">
+                        <h2 class="panel__title">Расписание ВКС-защиты</h2>
+                        <p class="panel__subtitle">Персональные ссылки для подключения к видеоконференции.</p>
+                        <div id="scheduleBox"></div>
+                    </div>
+
+                    <!-- ДОСТИЖЕНИЯ -->
+                    <div class="panel" id="panel-achievements">
+                        <h2 class="panel__title">Достижения</h2>
+                        <p class="panel__subtitle">Сертификаты, дипломы и благодарности — доступны для скачивания.</p>
+                        <div id="achievementsBox"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">Организаторы</h3>
+                <p class="footer__text">Государственный природный заповедник «Медвежьи острова»</p>
+                <p class="footer__text">Институт биологических проблем криолитозоны СО РАН</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Контакты</h3>
+                <p class="footer__text">E-mail: info@arctic-contest.ru</p>
+                <p class="footer__text">Телефон: +7 (4112) XXX-XXX</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Социальные сети</h3>
+                <div class="social">
+                    <a href="https://vk.ru/peakit" class="social__link" target="_blank" rel="noopener">ВКонтакте</a>
+                    <a href="https://t.me/durov" class="social__link" target="_blank" rel="noopener">Telegram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copy">&copy; 2021-2026 Конкурс «Удивительная и неизведанная Арктика»</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js?v=2" defer></script>
+    <script src="../js/auth-nav.js"></script>
+    <script src="../js/cabinet.js"></script>
+<script src="/js/snowfall.js?v=2" defer></script>
+</body>
+</html>

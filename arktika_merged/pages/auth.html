@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Вход и регистрация — Арктика</title><link rel="stylesheet" href="/css/style.css"><style>
+.auth-wrap{max-width:560px;margin:40px auto;padding:28px;background:#fff;border-radius:16px;box-shadow:0 8px 30px #18344a18}.auth-tabs{display:flex;gap:10px;margin-bottom:22px}.auth-tabs button{flex:1;padding:12px;border:1px solid #cbd8e2;border-radius:9px;background:#f3f7fa;cursor:pointer;font-weight:700}.auth-tabs button.active{background:#146b9b;color:#fff}.auth-form{display:none}.auth-form.active{display:block}.auth-form label{display:block;font-weight:600;margin:14px 0 6px}.auth-form input{box-sizing:border-box;width:100%;padding:12px;border:1px solid #cbd8e2;border-radius:8px}.auth-form button[type=submit]{width:100%;margin-top:20px;border:0;cursor:pointer}.auth-message{margin-top:14px;padding:12px;border-radius:8px;display:none}.auth-actions{display:flex;gap:10px;justify-content:flex-end;align-items:center;padding:12px max(20px,calc((100% - 1100px)/2));background:#f5f9fc}.auth-link{display:inline-block;padding:9px 15px;border:1px solid #176b9b;border-radius:8px;color:#176b9b;text-decoration:none;font-weight:700}.auth-link--primary{background:#176b9b;color:#fff}
+.vk-development{display:block;margin:6px 0 0;text-align:center;color:#738394;font-size:.82rem}.vk-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:14px;padding:12px;background:#0077FF;color:#fff;border-radius:9px;text-decoration:none;font-weight:700}
+.divider{display:flex;align-items:center;gap:12px;color:#7b8fa1;margin:20px 0;font-size:.9rem}.divider::before,.divider::after{content:'';height:1px;background:#dbe5ee;flex:1}
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}.role-card{border:2px solid #cbd8e2;border-radius:10px;padding:14px 8px;text-align:center;cursor:pointer;background:#f8fbfe;transition:.15s}.role-card input{display:none}.role-card .ico{font-size:1.7rem;display:block}.role-card .nm{font-weight:700;color:#146b9b;font-size:.9rem}.role-card.sel{border-color:#146b9b;background:#e8f3fb;box-shadow:0 0 0 3px #146b9b22}
+.role-fields{display:none}.role-fields.show{display:block}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:.9rem;color:#455;}.consent input{width:auto;margin-top:3px}
+.small{color:#7b8fa1;font-size:.85rem}
+</style></head><body><header class="header"><div class="container header__container"><div class="logo"><div class="logo__icon">❄</div><div class="logo__text"><h1 class="logo__title">Удивительная и неизведанная Арктика</h1><p class="logo__subtitle">Личный кабинет</p></div></div></div><nav class="nav"><div class="container"><ul class="nav__list"><li class="nav__item"><a href="/index.html" class="nav__link">Главная</a></li><li class="nav__item"><a href="/pages/participants.html" class="nav__link">Участникам</a></li></ul></div></nav></header>
+<main class="container"><section class="auth-wrap"><h2 class="section__title">Вход и регистрация</h2><div class="auth-tabs"><button id="loginTab" class="active" type="button">Вход</button><button id="registerTab" type="button">Регистрация</button></div>
+<form id="loginForm" class="auth-form active"><label for="loginEmail">Email</label><input id="loginEmail" type="email" required autocomplete="email" placeholder="name@example.com"><label for="loginPassword">Пароль</label><input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Не менее 8 символов"><button class="btn btn--primary" type="submit">Войти</button><div class="divider">или</div><a class="vk-btn" href="/api/auth/vk/login">🔵 Войти через VK ID</a><span class="vk-development">VK ID — в разработке</span></form>
+
+<form id="registerForm" class="auth-form">
+  <label style="margin-top:0">Кто вы?</label>
+  <div class="roles" id="roleCards">
+    <label class="role-card sel" data-role="participant"><input type="radio" name="role" value="participant" checked><span class="ico">🎒</span><span class="nm">Участник</span></label>
+    <label class="role-card" data-role="supervisor"><input type="radio" name="role" value="supervisor"><span class="ico">🧑‍🏫</span><span class="nm">Руководитель</span></label>
+    <label class="role-card" data-role="expert"><input type="radio" name="role" value="expert"><span class="ico">🔬</span><span class="nm">Эксперт</span></label>
+  </div>
+
+  <label for="regName">ФИО</label><input id="regName" required maxlength="150" autocomplete="name" placeholder="Иванов Алексей Петрович">
+  <label for="regEmail">Email</label><input id="regEmail" type="email" required autocomplete="email" placeholder="name@example.com">
+  <label for="regPassword">Пароль</label><input id="regPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="Минимум 8 символов">
+
+  <div class="role-fields show" data-role="participant">
+    <label for="regSchool">Школа</label><input id="regSchool" maxlength="150" placeholder="МБОУ «СОШ № 1»">
+    <label for="regGrade">Класс</label><input id="regGrade" maxlength="30" placeholder="9 класс">
+    <label for="regRegion">Регион</label><input id="regRegion" maxlength="120" placeholder="Республика Саха (Якутия)">
+  </div>
+
+  <div class="role-fields" data-role="supervisor">
+    <label for="supOrg">Организация</label><input id="supOrg" maxlength="200" placeholder="МБОУ «СОШ № 1»">
+    <label for="supPos">Должность</label><input id="supPos" maxlength="150" placeholder="Учитель биологии">
+  </div>
+
+  <div class="role-fields" data-role="expert">
+    <label for="expOrg">Организация</label><input id="expOrg" maxlength="200" placeholder="Институт / вуз">
+    <label for="expPos">Должность</label><input id="expPos" maxlength="150" placeholder="Научный сотрудник">
+    <label for="expExp">Направление экспертизы</label><input id="expExp" maxlength="200" placeholder="Биология, экология">
+  </div>
+
+  <label class="consent"><input type="checkbox" id="regConsent"><span>Согласен(-на) на обработку персональных данных в соответствии с Федеральным законом № 152-ФЗ «О персональных данных».</span></label>
+  <p class="small" id="moderationNote" style="display:none">Регистрация руководителя и эксперта проходит модерацию оргкомитетом.</p>
+  <button class="btn btn--primary" type="submit">Создать аккаунт</button>
+  <div class="divider">или</div>
+  <a class="vk-btn" id="vkRegisterBtn" href="/api/auth/vk/login?role=participant">🔵 Зарегистрироваться через VK ID</a><span class="vk-development">Регистрация через VK ID — в разработке</span>
+</form>
+<div id="authMessage" class="auth-message" role="status"></div>
+</section></main>
+<script src="/js/auth-nav.js"></script>
+<script>
+const loginTab=document.getElementById('loginTab'),registerTab=document.getElementById('registerTab'),loginForm=document.getElementById('loginForm'),registerForm=document.getElementById('registerForm'),msg=document.getElementById('authMessage');
+function show(mode){const reg=mode==='register';loginTab.classList.toggle('active',!reg);registerTab.classList.toggle('active',reg);loginForm.classList.toggle('active',!reg);registerForm.classList.toggle('active',reg);history.replaceState(null,'',reg?'#register':'#login');msg.style.display='none'}
+loginTab.onclick=()=>show('login');registerTab.onclick=()=>show('register');if(location.hash==='#register')show('register');
+const q=new URLSearchParams(location.search);if(q.get('vk')==='error'){msg.style.display='block';msg.textContent='Не удалось войти через VK ID.';msg.style.background='#fff0f0'}
+function currentRole(){const r=registerForm.querySelector('input[name=role]:checked');return r?r.value:'participant'}
+function applyRole(){const role=currentRole();document.querySelectorAll('.role-card').forEach(c=>c.classList.toggle('sel',c.dataset.role===role));document.querySelectorAll('.role-fields').forEach(f=>f.classList.toggle('show',f.dataset.role===role));document.getElementById('moderationNote').style.display=role==='participant'?'none':'block';var vk=document.getElementById('vkRegisterBtn');if(vk)vk.href='/api/auth/vk/login?role='+role}
+document.getElementById('roleCards').addEventListener('change',applyRole);applyRole();
+async function send(url,data){msg.style.display='block';msg.textContent='Отправка…';msg.style.background='#eef5fa';try{const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const d=await r.json();if(!r.ok)throw new Error(d.error||'Произошла ошибка');if(d.token&&window.arktikaToken)window.arktikaToken.set(d.token);msg.textContent=d.message+(d.name?' Добро пожаловать, '+d.name+'!':'');msg.style.background='#e7f7ed';if(d.redirect){setTimeout(()=>{location.href=d.redirect},800)}}catch(e){msg.textContent=e.message;msg.style.background='#fff0f0'}}
+loginForm.onsubmit=e=>{e.preventDefault();send('/api/auth/login',{email:document.getElementById('loginEmail').value,password:document.getElementById('loginPassword').value})};
+registerForm.onsubmit=e=>{e.preventDefault();const role=currentRole();const payload={role:role,name:document.getElementById('regName').value,email:document.getElementById('regEmail').value,password:document.getElementById('regPassword').value,consent_pdn:document.getElementById('regConsent').checked};
+if(role==='participant'){payload.school=document.getElementById('regSchool').value;payload.grade=document.getElementById('regGrade').value;payload.region=document.getElementById('regRegion').value}
+else if(role==='supervisor'){payload.organization=document.getElementById('supOrg').value;payload.position=document.getElementById('supPos').value}
+else{payload.organization=document.getElementById('expOrg').value;payload.position=document.getElementById('expPos').value;payload.expertise=document.getElementById('expExp').value}
+send('/api/auth/register',payload)};
+</script><script src="/js/snowfall.js" defer></script>
+</body></html>

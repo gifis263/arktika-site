@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель оргкомитета — Удивительная и неизведанная Арктика</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cabinet.css">
+    <link rel="stylesheet" href="../css/console.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <div class="logo__icon">❄</div>
+                <div class="logo__text">
+                    <h1 class="logo__title">Удивительная и неизведанная Арктика</h1>
+                    <p class="logo__subtitle">Панель оргкомитета</p>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">О конкурсе</a></li>
+                    <li class="nav__item"><a href="../news/news.html" class="nav__link">Новости</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="auth-actions"><a class="auth-link" href="/pages/auth.html#login">Вход</a></div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="console-layout">
+                <aside class="console-sidebar">
+                    <div class="console-user">
+                        <div class="console-user__name" id="userName">Загрузка…</div>
+                        <div class="console-user__role" id="userRole">Администратор</div>
+                    </div>
+                    <ul class="console-menu" id="consoleMenu">
+                        <li class="console-menu__group">Обзор</li>
+                        <li><button data-section="dashboard" class="active">📊 Дашборд</button></li>
+                        <li class="console-menu__group">Управление конкурсом</li>
+                        <li><button data-section="users" id="menuUsers">👥 Пользователи <span class="menu-badge" id="pendingBadge" style="display:none">0</span></button></li>
+                        <li><button data-section="experts">🔬 Эксперты и нагрузка</button></li>
+                        <li><button data-section="projects">📁 Проекты</button></li>
+                        <li><button data-section="comments">💬 Модерация отзывов</button></li>
+                        <li><button data-section="mailings">✉️ Рассылки</button></li>
+                        <li><button data-section="reports">📈 Отчёты и выгрузки</button></li>
+                        <li class="console-menu__group">Контент сайта</li>
+                        <li><button data-section="resource" data-resource="news">📰 Новости</button></li>
+                        <li><button data-section="resource" data-resource="media">🎬 Медиатека</button></li>
+                        <li><button data-section="resource" data-resource="banners">🖼 Баннеры / CTA</button></li>
+                        <li class="console-menu__group">Настройки конкурса</li>
+                        <li><button data-section="resource" data-resource="stages">📅 Этапы конкурса</button></li>
+                        <li><button data-section="resource" data-resource="nominations">🏷 Номинации</button></li>
+                        <li><button data-section="resource" data-resource="criteria">⚖️ Критерии оценки</button></li>
+                        <li><button data-section="resource" data-resource="questions">❓ Банк вопросов</button></li>
+                    </ul>
+                </aside>
+
+                <div class="console-content">
+                    <!-- ДАШБОРД -->
+                    <div class="panel active" id="panel-dashboard">
+                        <h2 class="panel__title">Дашборд</h2>
+                        <p class="panel__subtitle">Ключевые показатели конкурса в реальном времени.</p>
+                        <div class="kpi-grid" id="dashKpi"></div>
+                        <div class="two-col">
+                            <div class="card"><h3>Проекты по статусам</h3><div class="bars" id="dashStatus"></div></div>
+                            <div class="card"><h3>Проекты по номинациям</h3><div class="bars" id="dashNom"></div></div>
+                            <div class="card"><h3>Участники по регионам</h3><div class="bars" id="dashRegions"></div></div>
+                            <div class="card"><h3>Участники по школам</h3><div class="bars" id="dashSchools"></div></div>
+                        </div>
+                    </div>
+
+                    <!-- ПОЛЬЗОВАТЕЛИ -->
+                    <div class="panel" id="panel-users">
+                        <h2 class="panel__title">Управление пользователями</h2>
+                        <p class="panel__subtitle">Модерация регистраций, роли, блокировка и удаление.</p>
+                        <div class="hint">
+                            <strong>Как это работает.</strong> Участники активируются автоматически.
+                            Руководители и эксперты попадают на модерацию: пока статус «На модерации», доступ к
+                            кабинету ограничен. Нажмите <strong>«Одобрить»</strong>, чтобы активировать аккаунт,
+                            или <strong>«Блок»</strong>, чтобы запретить вход. Роль можно изменить в выпадающем списке.
+                        </div>
+                        <div class="toolbar">
+                            <div class="field"><label for="userRoleFilter">Роль</label>
+                                <select id="userRoleFilter"><option value="">Все роли</option>
+                                    <option value="participant">Участник</option><option value="supervisor">Руководитель</option>
+                                    <option value="expert">Эксперт</option><option value="admin">Администратор</option></select></div>
+                            <div class="field"><label for="userStatusFilter">Статус</label>
+                                <select id="userStatusFilter"><option value="">Все</option>
+                                    <option value="pending">На модерации</option><option value="approved">Одобрены</option>
+                                    <option value="blocked">Заблокированы</option></select></div>
+                            <button class="btn btn--primary" id="usersFilterBtn" type="button">Применить</button>
+                            <button class="btn btn--ghost" id="usersExportBtn" type="button">Экспорт CSV</button>
+                        </div>
+                        <div id="usersBox"></div>
+                    </div>
+
+                    <!-- ЭКСПЕРТЫ -->
+                    <div class="panel" id="panel-experts">
+                        <h2 class="panel__title">Эксперты и нагрузка</h2>
+                        <p class="panel__subtitle">Распределение работ между экспертами.</p>
+                        <div class="toolbar"><button class="btn btn--primary" id="autoAssignBtn" type="button">Распределить работы автоматически</button></div>
+                        <div class="alert" id="expertsAlert"></div>
+                        <div id="expertsBox"></div>
+                    </div>
+
+                    <!-- ПРОЕКТЫ -->
+                    <div class="panel" id="panel-projects">
+                        <h2 class="panel__title">Проекты</h2>
+                        <p class="panel__subtitle">Модерация работ и статусы допуска.</p>
+                        <div id="projectsBox"></div>
+                    </div>
+
+                    <!-- КОММЕНТАРИИ -->
+                    <div class="panel" id="panel-comments">
+                        <h2 class="panel__title">Модерация отзывов и комментариев</h2>
+                        <p class="panel__subtitle">Одобрение или отклонение публикуемых сообщений.</p>
+                        <div id="commentsBox"></div>
+                    </div>
+
+                    <!-- РАССЫЛКИ -->
+                    <div class="panel" id="panel-mailings">
+                        <h2 class="panel__title">Массовые рассылки</h2>
+                        <p class="panel__subtitle">Уведомления участников, руководителей, экспертов.</p>
+                        <form id="mailingForm">
+                            <div class="form-grid">
+                                <div class="field"><label for="mChannel">Канал *</label>
+                                    <select id="mChannel"><option value="email">Email</option><option value="push">Push</option><option value="vk">ВКонтакте</option></select></div>
+                                <div class="field"><label for="mAudience">Аудитория *</label>
+                                    <select id="mAudience"><option value="all">Все</option><option value="participants">Участники</option>
+                                        <option value="supervisors">Руководители</option><option value="experts">Эксперты</option>
+                                        <option value="pending">На модерации</option><option value="specific-email">Конкретный ученик (email)</option><option value="specific-nomination">Ученики номинации</option></select></div>
+                                <div class="field field--full" id="mRecipientWrap" hidden><label for="mRecipient">Email ученика или точное название номинации *</label><input id="mRecipient" maxlength="254" placeholder="email@example.com или название номинации"></div>
+                                <div class="field field--full"><small>Для реальной отправки email настрой SMTP-переменные окружения. VK ID отвечает за вход, но отправка сообщений ВКонтакте отдельно требует токена сообщества.</small></div>
+                                <div class="field field--full"><label for="mSubject">Тема *</label><input id="mSubject" maxlength="200" required></div>
+                                <div class="field field--full"><label for="mBody">Текст *</label><textarea id="mBody" maxlength="5000" required></textarea></div>
+                            </div>
+                            <div class="form-actions"><button class="btn btn--primary" type="submit">Отправить рассылку</button></div>
+                            <div class="alert" id="mailingAlert"></div>
+                        </form>
+                        <h3 style="margin:1.4rem 0 .6rem;color:var(--primary-blue)">История рассылок</h3>
+                        <div id="mailingsBox"></div>
+                    </div>
+
+                    <!-- ОТЧЁТЫ -->
+                    <div class="panel" id="panel-reports">
+                        <h2 class="panel__title">Отчётность</h2>
+                        <p class="panel__subtitle">Сводные данные и выгрузка в Excel/CSV.</p>
+                        <div class="toolbar">
+                            <button class="btn btn--primary" id="reportExportBtn" type="button">Отчёт по номинациям (CSV)</button>
+                            <button class="btn btn--ghost" id="usersExportBtn2" type="button">Пользователи (CSV)</button>
+                            <button class="btn btn--ghost" id="projectsExportBtn" type="button">Проекты (CSV)</button>
+                        </div>
+                        <div id="reportBox"></div>
+                    </div>
+
+                    <!-- УНИВЕРСАЛЬНЫЙ РЕДАКТОР РЕСУРСА -->
+                    <div class="panel" id="panel-resource">
+                        <h2 class="panel__title" id="resourceTitle">Раздел</h2>
+                        <p class="panel__subtitle" id="resourceSubtitle"></p>
+                        <form id="resourceForm"><div class="form-grid" id="resourceFields"></div>
+                            <div class="form-actions">
+                                <button class="btn btn--primary" type="submit" id="resourceSaveBtn">Добавить</button>
+                                <button class="btn btn--ghost" type="button" id="resourceCancelBtn" style="display:none">Отмена</button>
+                            </div>
+                            <div class="alert" id="resourceAlert"></div>
+                        </form>
+                        <div id="resourceBox" style="margin-top:1.2rem"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__bottom">
+            <p class="footer__copy">&copy; 2021-2026 Конкурс «Удивительная и неизведанная Арктика»</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth-nav.js"></script>
+    <script src="../js/admin.js"></script>
+<script src="/js/snowfall.js" defer></script>
+</body>
+</html>

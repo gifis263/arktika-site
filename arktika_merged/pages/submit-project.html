@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подача проекта — Удивительная и неизведанная Арктика</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <div class="logo__icon">❄</div>
+                <div class="logo__text">
+                    <h1 class="logo__title">Удивительная и неизведанная Арктика</h1>
+                    <p class="logo__subtitle">Всероссийский конкурс</p>
+                </div>
+            </div>
+            <div class="counter">
+                <span class="counter__number">245</span>
+                <span class="counter__label">участников</span>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">О конкурсе</a></li>
+                    <li class="nav__item"><a href="participants.html" class="nav__link">Участникам</a></li>
+                    <li class="nav__item"><a href="../education/lessons.html" class="nav__link">Образование</a></li>
+                    <li class="nav__item"><a href="media.html" class="nav__link">Медиатека</a></li>
+                    <li class="nav__item"><a href="../news/news.html" class="nav__link">Новости</a></li>
+                    <li class="nav__item"><a href="partners.html" class="nav__link">Партнёрам</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+            <div class="auth-actions"><a class="auth-link" href="/pages/auth.html#login">Вход</a><a class="auth-link auth-link--primary" href="/pages/auth.html#register">Регистрация</a></div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section__title">Подача проекта</h1>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">Заполните карточку проекта и загрузите файл с работой</p>
+            
+            <div style="max-width: 700px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 12px rgba(26, 77, 128, 0.1); border: 1px solid var(--border-color);">
+                <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 6px; border-left: 4px solid var(--accent-orange); margin-bottom: 1.5rem;">
+                    <p style="color: var(--primary-blue); font-weight: 600; margin-bottom: 0.5rem;">Информация</p>
+                    <p style="color: var(--text-light); font-size: 0.95rem;">Для подачи проекта необходимо авторизоваться на сайте. Перед подачей работы ознакомьтесь с <a href="participants.html" class="news-card__link">требованиями к работам</a>.</p>
+                </div>
+                <form>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary-blue);">Название проекта</label>
+                        <input type="text" style="width: 100%; padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary-blue);">Номинация</label>
+                        <select style="width: 100%; padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">
+                            <option value="">Выберите номинацию...</option>
+                            <option value="research">Исследовательские работы</option>
+                            <option value="creative">Творческие работы</option>
+                            <option value="educational">Просветительские проекты</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary-blue);">Краткое описание проекта</label>
+                        <textarea style="width: 100%; padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem; height: 100px;"></textarea>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary-blue);">Файл с работой (PDF, DOCX, ZIP до 50 МБ)</label>
+                        <input type="file" style="width: 100%; padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem; background: white;">
+                    </div>
+                    <button type="submit" class="btn btn--primary" style="width: 100%;">Отправить проект</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">Организаторы</h3>
+                <p class="footer__text">Государственный природный заповедник «Медвежьи острова»</p>
+                <p class="footer__text">Институт биологических проблем криолитозоны СО РАН</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Контакты</h3>
+                <p class="footer__text">E-mail: info@arctic-contest.ru</p>
+                <p class="footer__text">Телефон: +7 (4112) XXX-XXX</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Социальные сети</h3>
+                <div class="social">
+                    <a href="https://vk.ru/peakit" class="social__link" target="_blank" rel="noopener">ВКонтакте</a>
+                    <a href="https://t.me/durov" class="social__link" target="_blank" rel="noopener">Telegram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copy">&copy; 2021-2026 Конкурс «Удивительная и неизведанная Арктика»</p>
+        </div>
+    </footer>
+    <script src="../js/backend.js"></script>
+    <script src="/js/auth-nav.js"></script>
+<script src="/js/snowfall.js" defer></script>
+</body>
+</html>

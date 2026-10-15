@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кабинет руководителя — Удивительная и неизведанная Арктика</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cabinet.css">
+    <link rel="stylesheet" href="../css/console.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <div class="logo__icon">❄</div>
+                <div class="logo__text">
+                    <h1 class="logo__title">Удивительная и неизведанная Арктика</h1>
+                    <p class="logo__subtitle">Кабинет руководителя</p>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">О конкурсе</a></li>
+                    <li class="nav__item"><a href="participants.html" class="nav__link">Участникам</a></li>
+                    <li class="nav__item"><a href="../news/news.html" class="nav__link">Новости</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="auth-actions"><a class="auth-link" href="/pages/auth.html#login">Вход</a><a class="auth-link auth-link--primary" href="/pages/auth.html#register">Регистрация</a></div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="console-layout">
+                <aside class="console-sidebar">
+                    <div class="console-user">
+                        <div class="console-user__name" id="userName">Загрузка…</div>
+                        <div class="console-user__role" id="userRole">Руководитель</div>
+                    </div>
+                    <ul class="console-menu" id="consoleMenu">
+                        <li><button data-section="overview" class="active">📊 Обзор</button></li>
+                        <li><button data-section="participants">🎒 Мои участники</button></li>
+                        <li><button data-section="certificate">🏅 Сертификат</button></li>
+                    </ul>
+                </aside>
+
+                <div class="console-content">
+                    <div class="panel active" id="panel-overview">
+                        <h2 class="panel__title">Кабинет руководителя</h2>
+                        <p class="panel__subtitle">Здесь отображаются участники, прикрепившие вас в качестве руководителя.</p>
+                        <div class="kpi-grid" id="kpiGrid"></div>
+                        <div class="hint">
+                            Участник указывает ваш e-mail в личном кабинете, после чего вы появляетесь в списке ниже.
+                            В разделе «Мои участники» вы можете подтвердить заявку ученика.
+                        </div>
+                        <div id="pendingNote"></div>
+                    </div>
+
+                    <div class="panel" id="panel-participants">
+                        <h2 class="panel__title">Мои участники</h2>
+                        <p class="panel__subtitle">Список прикреплённых школьников, их проекты и подтверждение заявок.</p>
+                        <div id="participantsBox"></div>
+                    </div>
+
+                    <div class="panel" id="panel-certificate">
+                        <h2 class="panel__title">Сертификат руководителя</h2>
+                        <p class="panel__subtitle">Формируется автоматически после появления прикреплённых участников.</p>
+                        <div class="hint">Сертификат доступен в формате PDF с QR-кодом для проверки подлинности.</div>
+                        <button class="btn btn--primary" id="certBtn" type="button">Скачать сертификат (PDF)</button>
+                        <div class="alert" id="certAlert"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">Организаторы</h3>
+                <p class="footer__text">Государственный природный заповедник «Медвежьи острова»</p>
+                <p class="footer__text">Институт биологических проблем криолитозоны СО РАН</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Контакты</h3>
+                <p class="footer__text">E-mail: info@arctic-contest.ru</p>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copy">&copy; 2021-2026 Конкурс «Удивительная и неизведанная Арктика»</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth-nav.js"></script>
+    <script src="../js/supervisor.js"></script>
+<script src="/js/snowfall.js" defer></script>
+</body>
+</html>

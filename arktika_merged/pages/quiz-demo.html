@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Демо-тест — Удивительная и неизведанная Арктика</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <div class="logo">
+                <div class="logo__icon">❄</div>
+                <div class="logo__text">
+                    <h1 class="logo__title">Удивительная и неизведанная Арктика</h1>
+                    <p class="logo__subtitle">Всероссийский конкурс</p>
+                </div>
+            </div>
+            <div class="counter">
+                <span class="counter__number">245</span>
+                <span class="counter__label">участников</span>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link">О конкурсе</a></li>
+                    <li class="nav__item"><a href="participants.html" class="nav__link">Участникам</a></li>
+                    <li class="nav__item"><a href="../education/lessons.html" class="nav__link">Образование</a></li>
+                    <li class="nav__item"><a href="media.html" class="nav__link">Медиатека</a></li>
+                    <li class="nav__item"><a href="../news/news.html" class="nav__link">Новости</a></li>
+                    <li class="nav__item"><a href="partners.html" class="nav__link">Партнёрам</a></li>
+                    <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+            <div class="auth-actions"><a class="auth-link" href="/pages/auth.html#login">Вход</a><a class="auth-link auth-link--primary" href="/pages/auth.html#register">Регистрация</a></div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section__title">Демо-тест: Арктика. Первые шаги</h1>
+            
+            <div style="max-width: 700px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 12px rgba(26, 77, 128, 0.1); border: 1px solid var(--border-color);">
+                <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--bg-light); border-radius: 6px;">
+                    <p style="color: var(--primary-blue); font-weight: 600;">Вопрос 1 из 5</p>
+                </div>
+                
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem;">Где чаще всего рождают белые медведи?</h3>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 0.7rem; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; margin-bottom: 0.7rem;">
+                        <input type="radio" name="q1" value="a">
+                        <span>На льду Арктики</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.7rem; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; margin-bottom: 0.7rem; background: var(--light-blue);">
+                        <input type="radio" name="q1" value="b" checked>
+                        <span>На Медвежьих островах</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.7rem; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; margin-bottom: 0.7rem;">
+                        <input type="radio" name="q1" value="c">
+                        <span>В горах Чукотки</span>
+                    </label>
+                </div>
+                
+                <div style="background: #d4edda; padding: 0.8rem; border-radius: 6px; border-left: 4px solid #28a745; margin-bottom: 1.5rem;">
+                    <p style="color: #155724; font-size: 0.95rem;"><strong>Правильный ответ:</strong> На Медвежьих островах</p>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: space-between;">
+                    <a href="quiz.html" class="btn btn--secondary">Назад к тестированию</a>
+                    <a href="#" class="btn btn--primary">Следующий вопрос</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">Организаторы</h3>
+                <p class="footer__text">Государственный природный заповедник «Медвежьи острова»</p>
+                <p class="footer__text">Институт биологических проблем криолитозоны СО РАН</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Контакты</h3>
+                <p class="footer__text">E-mail: info@arctic-contest.ru</p>
+                <p class="footer__text">Телефон: +7 (4112) XXX-XXX</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Социальные сети</h3>
+                <div class="social">
+                    <a href="https://vk.ru/peakit" class="social__link" target="_blank" rel="noopener">ВКонтакте</a>
+                    <a href="https://t.me/durov" class="social__link" target="_blank" rel="noopener">Telegram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copy">&copy; 2021-2026 Конкурс «Удивительная и неизведанная Арктика»</p>
+        </div>
+    </footer>
+    <script src="/js/auth-nav.js"></script>
+<script src="/js/snowfall.js" defer></script>
+</body>
+</html>

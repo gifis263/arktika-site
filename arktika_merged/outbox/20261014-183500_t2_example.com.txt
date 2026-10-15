@@ -1,0 +1,9 @@
+Кому: t2@example.com
+Тема: Подтверждение руководства проектом участника
+
+Уважаемый(ая) Teach!
+
+Участник Pupil указал Вас руководителем проекта.
+Подтвердите, пожалуйста, переходом по ссылке:
+http://localhost/api/supervisors/confirm?token=04NWbgu6FP1dV886ZqvnP5XUjRyvKuA_
+
