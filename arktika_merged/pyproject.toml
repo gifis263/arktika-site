@@ -1,6 +1,0 @@
-﻿[project]
-name = arctic-contest
-version = 1.0.0
-
-[tool.pycharm.run]
-server = "python server.py"
